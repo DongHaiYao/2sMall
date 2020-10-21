@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  * @Author：DongHai
@@ -32,4 +33,5 @@ public class Products {
     private int salesNum;
     private String  uid;
     private byte[] image;
+    private ArrayList<ProductMessage> productMessages;
 }

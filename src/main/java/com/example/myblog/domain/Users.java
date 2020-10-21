@@ -27,5 +27,7 @@ public class Users {
     private String gender;
     private Date createTime;
     private byte[] avatar;
+    private Favorites favorites;
+    private ShoppingCart shoppingCart;
 
 }
