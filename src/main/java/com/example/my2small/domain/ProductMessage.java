@@ -1,4 +1,4 @@
-package com.example.myblog.domain;
+package com.example.my2small.domain;
 
 import lombok.Data;
 
