@@ -41,8 +41,7 @@ public class UserController {
         String password = user.getPassword();
 
         String regexForUsername = "^[\\u4e00-\\u9fa5]{1,7}$|^[\\dA-Za-z_]{1,14}$";
-        Pattern pattern = Pattern.compile(regexForUsername);
-        Matcher matcher = pattern.matcher(username);
+        Matcher matcher = Pattern.compile(regexForUsername).matcher(username);
         boolean isUsername = matcher.find();
         boolean isEmail = Validator.isEmail(email);
         boolean isPhoneNum = Validator.isNumber(phoneNum);

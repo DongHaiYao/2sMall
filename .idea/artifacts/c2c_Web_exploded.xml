@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="c2c:Web exploded">
+    <output-path>$PROJECT_DIR$/../c2c/out/artifacts/c2c_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="c2c/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="c2c" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
