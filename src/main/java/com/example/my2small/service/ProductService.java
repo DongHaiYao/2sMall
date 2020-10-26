@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @Date：2020/10/22
  * @Description:
  **/
-@Service
+@Service("productService")
 public class ProductService {
     @Autowired
     private IProductDao productDao;

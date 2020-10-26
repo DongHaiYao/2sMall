@@ -137,5 +137,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
+    <orderEntry type="library" name="font-awesome.4.6.0" level="application" />
+    <orderEntry type="library" name="bootstrap-3.3.4" level="application" />
   </component>
 </module>

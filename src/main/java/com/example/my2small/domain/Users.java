@@ -19,10 +19,9 @@ public class Users {
     private Date modify;
     private String username;
     private String password;
-    private long phoneNum;
+    private String  phoneNum;
     private String email;
     private String realName;
-    private String className;
     private long stuNumber;
     private String dormitory;
     private String gender;

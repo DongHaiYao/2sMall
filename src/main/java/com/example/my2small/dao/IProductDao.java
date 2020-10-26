@@ -17,6 +17,6 @@ public interface IProductDao {
     * @Param: [id] 商品id
     * @Return: com.example.my2small.domain.Products
     **/
-    @Select("select 待定 from products where id=#{id}")
+    @Select("select * from products where id=#{id}")
     Products findById(int id);
 }
