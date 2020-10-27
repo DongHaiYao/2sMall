@@ -7,6 +7,7 @@ import cn.hutool.json.JSONUtil;
 import com.example.my2small.domain.Users;
 import com.example.my2small.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletResponse;
@@ -20,15 +21,14 @@ import java.util.regex.Pattern;
  * @Date：2020/10/22
  * @Description: 用户控制层
  **/
-@RestController
+@Controller
 @RequestMapping("/userService")
 public class UserController {
     @Autowired
     UserService userService;
-    @PostMapping("/register")
-    public String  registerCheck(@RequestBody Users user, @RequestParam("passwordCheck")String passwordCheck ,
-                               RedirectAttributes attr, HttpServletResponse response) throws IOException {
-
+    @RequestMapping("/register")
+    public String  registerCheck(String jsonStr, RedirectAttributes attr, HttpServletResponse response) throws IOException {
+        Users user = JSONUtil.toBean(jsonStr,Users.class);
         if (null == user) {
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(JSONUtil.toJsonStr("错误"));
@@ -39,6 +39,7 @@ public class UserController {
         String email = user.getEmail();
         String phoneNum = user.getPhoneNum();
         String password = user.getPassword();
+        String passwordCheck = (String) JSONUtil.parseArray(jsonStr).getByPath("passwordCheck");
 
         String regexForUsername = "^[\\u4e00-\\u9fa5]{1,7}$|^[\\dA-Za-z_]{1,14}$";
         Matcher matcher = Pattern.compile(regexForUsername).matcher(username);

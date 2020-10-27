@@ -946,7 +946,22 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">Create your account</h3>  
 			<div class="login-body">
-				<form action="/userService/register" method="post">
+				<script>
+					function changeAction(){
+
+						$.ajax({
+							type:"POST",
+							contentType:"application/json;charset=UTF-8",
+							url: "/userService/register",
+							data: JSON.stringify($("registerForm").serialize()),
+							dataType: 'json',
+							success: function (){
+								alert("register success")
+							}
+						})
+					}
+				</script>
+				<form onsubmit="return changeAction()" method="post" name="registerForm">
 					<input type="text" class="user" name="username" placeholder="用户名" required="">
 					<input type="text" class="user" name="email" placeholder="邮箱" required="">
 					<input type="text" class="user" name="phoneNum" placeholder="电话号码" required="">
