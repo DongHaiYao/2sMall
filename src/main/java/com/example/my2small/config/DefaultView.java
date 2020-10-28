@@ -30,6 +30,7 @@ public class DefaultView implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/signup.html").setViewName("signup");
+        registry.addViewController("/login.html").setViewName("login");
     }
 
     @Override

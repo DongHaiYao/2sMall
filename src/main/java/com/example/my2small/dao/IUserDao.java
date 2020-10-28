@@ -32,4 +32,14 @@ public interface IUserDao {
     @Insert("insert into users (id,username,email,phoneNum,realName,dormitory,stuNumber,password,gender) value(#{id}," +
             "#{username},#{email},#{phoneNum},#{realName},#{dormitory},#{stuNumber},#{password},#{gender})")
     String saveUser(Users user);
+
+    /**
+     * @Author LingXiao
+     * @Description //邮箱密码登录
+     * @Date 21:16 2020/10/27 0027
+     * @Param [email, password]
+     * @return com.example.my2small.domain.Users
+     **/
+    @Select("select * from users where email=#{email} and password=#{password}")
+    String loginByEmail(String email,String password);
 }

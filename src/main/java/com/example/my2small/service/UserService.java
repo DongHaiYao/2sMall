@@ -24,4 +24,8 @@ public class UserService {
     public String saveUser(Users user){
         return userDao.saveUser(user);
     }
+
+    public String loginByEmail(String email,String password){
+        return userDao.loginByEmail(email, password);
+    }
 }

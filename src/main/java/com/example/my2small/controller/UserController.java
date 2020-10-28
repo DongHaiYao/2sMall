@@ -8,6 +8,7 @@ import com.example.my2small.domain.Users;
 import com.example.my2small.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +41,6 @@ public class UserController {
         String phoneNum = user.getPhoneNum();
         String password = user.getPassword();
         String passwordCheck = (String) JSONUtil.parseArray(jsonStr).getByPath("passwordCheck");
-
         String regexForUsername = "^[\\u4e00-\\u9fa5]{1,7}$|^[\\dA-Za-z_]{1,14}$";
         Matcher matcher = Pattern.compile(regexForUsername).matcher(username);
         boolean isUsername = matcher.find();
@@ -61,5 +61,18 @@ public class UserController {
         user.setCreateTime(DateUtil.date().toSqlDate());
         userService.saveUser(user);
         return "index.html";
+    }
+
+    @RequestMapping("/login")
+    public String loginByEmail(@RequestParam("email") String email,
+                               @RequestParam("password") String password,
+                               Model model) throws IOException {
+        String id=userService.loginByEmail(email, password);
+        if(null==id){
+            model.addAttribute("msg","账号或密码错误");
+            return "login";
+        }else {
+            return "redirect:/";
+        }
     }
 }
