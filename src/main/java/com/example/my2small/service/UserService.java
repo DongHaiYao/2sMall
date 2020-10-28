@@ -21,7 +21,10 @@ public class UserService {
         return userDao.findById(id);
     }
 
+    public Users findByPhoneNum(String phoneNum){return userDao.findByPhoneNum(phoneNum);}
+
     public String saveUser(Users user){
         return userDao.saveUser(user);
     }
+
 }

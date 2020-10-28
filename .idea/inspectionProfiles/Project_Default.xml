@@ -30,7 +30,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="date,Description:用户实体类,Date：2020/10/21,Author：DongHai,Description:商品实体类,Param,Date：2020/10/22,Description:配置类,Description:用户持久层,Description:商品持久层,Param:,Return:,Date:,Author:" />
+      <option name="myAdditionalJavadocTags" value="date,Description:用户实体类,Date：2020/10/21,Author：DongHai,Description:商品实体类,Param,Date：2020/10/22,Description:配置类,Description:用户持久层,Description:商品持久层,Param:,Return:,Date:,Author:,Description:,Author,Description,Date" />
     </inspection_tool>
   </profile>
 </component>
