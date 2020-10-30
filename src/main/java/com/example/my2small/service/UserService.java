@@ -21,8 +21,8 @@ public class UserService {
         return userDao.findById(id);
     }
 
-    public String saveUser(Users user){
-        return userDao.saveUser(user);
+    public void saveUser(Users user){
+         userDao.saveUser(user);
     }
 
     public String loginByEmail(String email,String password){

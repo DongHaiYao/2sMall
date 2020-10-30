@@ -33,9 +33,4 @@ public class DefaultView implements WebMvcConfigurer {
         registry.addViewController("/login.html").setViewName("login");
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/","/index.html","/userService/register","/signup.html");
-    }
 }
