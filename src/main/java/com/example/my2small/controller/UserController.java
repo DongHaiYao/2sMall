@@ -42,15 +42,15 @@ public class UserController {
      * TODO : 重定向后url的问题,失败后的返回问题
     **/
     @RequestMapping(value = "/user",method = RequestMethod.POST)
-    public ModelAndView saveUser(Users user,HttpServletRequest request){
+    public String  saveUser(Users user,HttpServletRequest request){
         if (RegisterConfim.registerConfim(request,user.getUsername(),user.getEmail(),user.getPhoneNum(),user.getPassword())) {
             user.setId(IdUtil.fastSimpleUUID());
             user.setCreateTime(DateUtil.date().toSqlDate());
         }else {
-            return new ModelAndView("");
+            return "";
         }
         userService.saveUser(user);
-        return new ModelAndView("index");
+        return "index";
     }
 
     @RequestMapping("/login")
