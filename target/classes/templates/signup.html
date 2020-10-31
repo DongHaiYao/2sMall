@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../static/css/animate.min.css" rel="stylesheet" type="text/css" media="all" /><!-- animation -->
+<link href="../static/css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
+<!-- //Custom Theme files -->
+<!-- font-awesome icons -->
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="../static/js/jquery-2.2.3.min.js"></script>
+<script src="../static/js/jquery-scrolltofixed-min.js" type="text/javascript"></script><!-- fixed nav js -->
+<script>
+    $(document).ready(function() {
+
+        // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
+
+        $('.header-two').scrollToFixed();  
+        // previous summary up the page.
+
+        var summaries = $('.summary');
+        summaries.each(function(i) {
+            var summary = $(summaries[i]);
+            var next = summaries[i + 1];
+
+            summary.scrollToFixed({
+                marginTop: $('.header-two').outerHeight(true) + 10, 
+                zIndex: 999
+            });
+        });
+    });
+</script>
+<!-- //js --> 
+<!-- web-fonts -->
+
+
+ 
+<!-- web-fonts -->  
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="../static/js/move-top.js"></script>
+<script type="text/javascript" src="../static/js/easing.js"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!-- //end-smooth-scrolling -->
+<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+</head>
+<body>
+	<!-- header -->
+	<div th:replace="commonCodes::headCode"></div>
+	<!-- //header --> 	
+	<!-- sign up-page -->
+	<div class="login-page">
+		<div class="container"> 
+			<h3 class="w3ls-title w3ls-title1">创建您的账号</h3>
+			<div class="login-body">
+				<script>
+					function changeAction(){
+
+						$.ajax({
+							type:"POST",
+							contentType:"application/json;charset=UTF-8",
+							url: "/userService/register",
+							data: JSON.stringify($("registerForm").serialize()),
+							dataType: 'json',
+							success: function (){
+								alert("register success")
+							}
+						})
+					}
+				</script>
+				<form onsubmit="return changeAction()" method="post" name="registerForm">
+					<input type="text" class="user" name="username" placeholder="用户名" required="">
+					<input type="text" class="user" name="email" placeholder="邮箱" required="">
+					<input type="text" class="user" name="phoneNum" placeholder="电话号码" required="">
+					<input type="text" class="user" name="realName" placeholder="真实姓名" required="">
+					<input type="text" class="user" name="dormitory" placeholder="宿舍号" required="">
+					<input type="text" class="user" name="stuNumber" placeholder="学号" required="">
+					<input type="password" name="password" class="lock" placeholder="密码" required="">
+					<input type="password" name="passwordCheck" class="lock" placeholder="再次确认密码" required="">
+					性别：
+					<input type="radio" class="user" name="gender" value="男">男
+					<input type="radio" class="user" name="gender" value="女">女
+					<input type="submit" value="确认注册 ">
+					<div class="forgot-grid">
+						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>记住密码</label>
+						<div class="forgot">
+							<a href="#">忘记密码？</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>  
+			<h6>已经拥有账号？ <a href="login.html">立即登录 »</a> </h6>
+		</div>
+	</div>
+	<!-- //sign up-page -->
+	<div class="copy-right"> 
+		<div class="container">
+			<p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="#"></a></p>
+		</div>
+	</div> 
+	<!-- cart-js -->
+	<script src="../static/js/minicart.js"></script>
+	<script>
+        w3ls.render();
+
+        w3ls.cart.on('w3sb_checkout', function (evt) {
+        	var items, len, i;
+
+        	if (this.subtotal() > 0) {
+        		items = this.items();
+
+        		for (i = 0, len = items.length; i < len; i++) {
+        			items[i].set('shipping', 0);
+        			items[i].set('shipping2', 0);
+        		}
+        	}
+        });
+    </script>  
+	<!-- //cart-js --> 	 
+	<!-- menu js aim -->
+	<script src="../static/js/jquery.menu-aim.js"> </script>
+	<script src="../static/js/main.js"></script> <!-- Resource jQuery -->
+	<!-- //menu js aim --> 
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/bootstrap.js"></script>
+</body>
+</html>
