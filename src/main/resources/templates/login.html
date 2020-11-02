@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en"   xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,20 +83,10 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">登录您的账户</h3>
 			<div class="login-body">
-				<!-- 将表单转化为json-->
-				<script>
-					function loginByPhoneNum() {
-						var fields = $('#login').serializeArray();
-						var obj = {};
-						$.each(fields, function(index, field) {
-							obj[field.name] = field.value;
-						});
-					}
-				</script>
-				<form   th:action="@{/userService/login}"  method="post">
-					<input type="text" class="user"  name="phoneNum"  placeholder="请输入手机号" required="">
-					<input type="password" name="password"  class="lock" placeholder="请输入密码" required="" >
-					<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}" ></p>
+				<form th:action="@{/userService/login}"  method="post" id="login">
+					<input type="text" class="user"  name="phoneNum" placeholder="请输入电话" required="">
+					<input type="password" name="password" class="lock" placeholder="请输入密码" required="">
+					<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
 					<input type="submit" value="登录">
 					<div class="forgot-grid">
 						<label class="checkbox"><input type="checkbox" name="rememberMe" ><i></i>下次自动登录</label>

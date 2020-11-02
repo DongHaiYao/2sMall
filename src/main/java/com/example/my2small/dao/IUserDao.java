@@ -1,7 +1,9 @@
 package com.example.my2small.dao;
 
+import com.example.my2small.domain.Avatar;
 import com.example.my2small.domain.Users;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -36,12 +38,14 @@ public interface IUserDao {
     * @Author: DongHai
     * @Date: 2020/10/26
     * @Param: [id] 用户唯一标识符
-    * @Return: java.lang.String
+    * @Return:
      * 保存用户
     **/
-    @Insert("insert into users (id,username,email,phoneNum,realName,dormitory,stuNumber,password,gender) value(#{id}," +
-            "#{username},#{email},#{phoneNum},#{realName},#{dormitory},#{stuNumber},#{password},#{gender})")
-    String saveUser(Users user);
+    @Insert("insert into users (id,username,email,phoneNum,realName,dormitory,createTime,stuNumber,password,gender) value(#{id}," +
+            "#{username},#{email},#{phoneNum},#{realName},#{dormitory},#{createTime},#{stuNumber},#{password},#{gender})")
+    void saveUser(Users user);
 
+    @Select("select * from avatar where userId=#{userId}")
+    Avatar getAvatar(String userId);
 
 }

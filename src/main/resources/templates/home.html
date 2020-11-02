@@ -99,6 +99,11 @@
 
 <div id="box" >
     <ul class="list-cell">
+        <style type="text/css">
+            li.invisible {visibility:hidden}
+        </style>
+        <li class="invisible" id="avatarSrcLi">/userService/getAvatar?userId=<shiro:principal property="id"/></li>
+        <img id="avatar" width="50px" height="50px" src="/userService/getAvatar">
         <li class="list-group-item">用户名：<shiro:principal property="username"/></li>
         <li class="list-group-item">邮箱：<shiro:principal property="email"/></li>
         <li class="list-group-item">手机号：<shiro:principal property="phoneNum"/></li>
@@ -106,7 +111,7 @@
         <li class="list-group-item">宿舍号：<shiro:principal property="dormitory"/></li>
         <li class="list-group-item">学号：<shiro:principal property="stuNumber"/></li>
         <li class="list-group-item">创建日期：<shiro:principal property="createTime"/></li>
-        <li class="list-group-item">性别：<shiro:principal property="gender"/></li>
+        <li class="list-group-item" id="zz">性别：<shiro:principal property="gender"/></li>
     </ul>
 </div>
 
@@ -143,5 +148,9 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="../static/js/bootstrap.js"></script>
+<script>
+    var avatarSrc=document.getElementById("avatarSrcLi").innerText;
+    document.getElementById("avatar").src=avatarSrc;
+</script>
 </body>
 </html>

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.FileOutputStream;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,9 +29,8 @@ class MyblogApplicationTests {
         System.out.println(matcher.find());
     }
     @Test
-    void parseJson(){
-        String s="{\"phoneNum\":\"18282067926\",\"password\":\"1234\"}";
-        Map<String,String> map = JSONObject.parseObject(s, Map.class);
-        System.out.println(map.get("password"));
+    void getAvatar(){
+        //byte[] img=userService.getAvatar("fc7e5f5b-68a6-4e15-8d9a-7f4c4aba417c");
+
     }
 }

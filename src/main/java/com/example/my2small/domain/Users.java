@@ -24,12 +24,11 @@ public class Users implements Serializable {
     private String  phoneNum;
     private String email;
     private String realName;
-    private long stuNumber;
+    private String stuNumber;
     private String dormitory;
     private String gender;
     private Date createTime;
     private byte[] avatar;
     private Favorites favorites;
     private ShoppingCart shoppingCart;
-
 }

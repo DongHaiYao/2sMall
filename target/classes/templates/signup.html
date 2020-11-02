@@ -84,30 +84,20 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">创建您的账号</h3>
 			<div class="login-body">
-				<script>
-					function changeAction(){
 
-						$.ajax({
-							type:"POST",
-							contentType:"application/json;charset=UTF-8",
-							url: "/userService/register",
-							data: JSON.stringify($("registerForm").serialize()),
-							dataType: 'json',
-							success: function (){
-								alert("register success")
-							}
-						})
-					}
-				</script>
-				<form onsubmit="return changeAction()" method="post" name="registerForm">
+				<form action="/userService/register"  method="post" name="registerForm">
 					<input type="text" class="user" name="username" placeholder="用户名" required="">
+					<p style="color: red" th:text="${isUsername}" th:if="${not #strings.isEmpty(isUsername)}"></p>
 					<input type="text" class="user" name="email" placeholder="邮箱" required="">
+					<p style="color: red" th:text="${isEmail}" th:if="${not #strings.isEmpty(isEmail)}"></p>
 					<input type="text" class="user" name="phoneNum" placeholder="电话号码" required="">
+					<p style="color: red" th:text="${isPhoneNum}" th:if="${not #strings.isEmpty(isPhoneNum)}"></p>
 					<input type="text" class="user" name="realName" placeholder="真实姓名" required="">
 					<input type="text" class="user" name="dormitory" placeholder="宿舍号" required="">
 					<input type="text" class="user" name="stuNumber" placeholder="学号" required="">
 					<input type="password" name="password" class="lock" placeholder="密码" required="">
 					<input type="password" name="passwordCheck" class="lock" placeholder="再次确认密码" required="">
+					<p style="color: red" th:text="${isCompared}" th:if="${not #strings.isEmpty(isCompared)}"></p>
 					性别：
 					<input type="radio" class="user" name="gender" value="男">男
 					<input type="radio" class="user" name="gender" value="女">女

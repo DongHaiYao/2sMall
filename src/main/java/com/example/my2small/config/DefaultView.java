@@ -33,11 +33,7 @@ public class DefaultView implements WebMvcConfigurer {
         registry.addViewController("/signup.html").setViewName("signup");
         registry.addViewController("/login.html").setViewName("login");
         registry.addViewController("/home.html").setViewName("home");
+
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/","/index.html","/userService/register","/signup.html");
-    }
 }
